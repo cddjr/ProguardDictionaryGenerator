@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Main {
-    private static final String ROOT_PATH = "/Users/zhuwenbo/IdeaProjects/ProguardDictionaryGenerator/src/";
+    private static final String ROOT_PATH = System.getProperty("user.home");
 
     private static BufferedImage image;
     private static Graphics graphics;
@@ -25,7 +25,8 @@ public class Main {
             String s = String.valueOf(c);
             list.add(new Holder(s, getSizeForString(s)));
         }
-        Collections.sort(list);
+        //Collections.sort(list);
+        Collections.shuffle(list);
         File file = new File(ROOT_PATH, "dict.txt");
         FileOutputStream fos = new FileOutputStream(file);
         for (Holder holder : list) {
